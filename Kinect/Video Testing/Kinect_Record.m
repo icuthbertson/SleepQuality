@@ -5,7 +5,7 @@ addpath(utilpath);
 vid2 = videoinput('kinect',2,'Depth_640x480'); % Depth camera
 srcDepth = getselectedsource(vid2);
 
-fnum = 1200;
+fnum = 200;
 
 vid2.FramesPerTrigger = 1;
 vid2.TriggerRepeat = fnum;
@@ -36,8 +36,11 @@ for i = 1:fnum+1
 end
 
 endtime = clock;
+height = 0;
+width = 0;
 
 s = ApproximateMedian(s);
+[x, pewpdi] = VideoAnalysis(s(1).cdata);
 % If you don't stop you can't start video acquisition again. it will give
 % error when you try to start again. in this case call fnc below
 stop(vid2);

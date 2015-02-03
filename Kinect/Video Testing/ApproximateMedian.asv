@@ -29,7 +29,7 @@ for i = 11:200 %From background frame + 1 to end
          for j=1:640
 
              if ((fr_diff(k,j) > thresh))  % if fr_diff > thresh pixel in foreground
-                 foreground(k,j) = fr(k,j); %Set foreground pixel to frame value
+                 foreground(k,j) =1 fr(k,j); %Set foreground pixel to frame value
              else
                  foreground(k,j) = 0; %If difference isnt greater than threshold set pixel black
              end
