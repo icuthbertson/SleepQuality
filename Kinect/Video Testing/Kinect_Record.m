@@ -35,14 +35,18 @@ for i = 1:fnum+1
   %  u(i).cdata = metaData_DepthAll;
 end
 
+stop(vid2);
+
 endtime = clock;
 height = 0;
 width = 0;
 
 s = ApproximateMedian(s);
-[x, pewpdi] = VideoAnalysis(s(1).cdata);
+
+whitePixelCount = countWhitePixels(s)
+
+%[x, pewpdi] = VideoAnalysis(s(1).cdata);
 % If you don't stop you can't start video acquisition again. it will give
 % error when you try to start again. in this case call fnc below
-stop(vid2);
 
 %close(vidObj);
