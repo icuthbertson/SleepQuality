@@ -8,7 +8,7 @@
 function [input] = ApproximateMedian(input)
 
 
-thresh = 30;           
+thresh = 50;           
 
 bg = input(10).cdata;           % read in 10th frame as background to remove camera start up error
 %bg_bw = double(rgb2gray(bg));    % convert background to greyscale
