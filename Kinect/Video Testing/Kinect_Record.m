@@ -43,7 +43,7 @@ width = 0;
 
 s = ApproximateMedian(s);
 
-whitePixelCount = countWhitePixels(s)
+whitePixelCount = countWhitePixels(s, fnum);
 
 %[x, pewpdi] = VideoAnalysis(s(1).cdata);
 % If you don't stop you can't start video acquisition again. it will give

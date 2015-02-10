@@ -1,9 +1,9 @@
-function [whitePixels] = countWhitePixels(foregroundImage)
+function [whitePixels] = countWhitePixels(foregroundImage, numFrames)
     
-    numFrames = size(foregroundImage);
-    whitePixels = zeros(numFrames);
     
-for i = 11:200 %From background frame + 1 to end
+    whitePixels = zeros(1, numFrames);
+    
+for i = 11:numFrames %From background frame + 1 to end
     
     frame = foregroundImage(i).cdata;
 
