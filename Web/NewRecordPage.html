@@ -1,3 +1,24 @@
+<SCRIPT TYPE="text/javascript">
+	function showRecording(b){
+		if (b == 'f'){
+			document.getElementById("yesNo").src="Images/Project - no.jpg";
+			sendReq('t');
+		} else if (b == 't'){
+			document.getElementById("yesNo").src="Images/Project - yes.jpg";
+			sendReq('f');
+		}
+	}
+	
+	function sendReq(b){
+		if (b == 't'){
+			window.alert("sending start signal to server-TBC");
+		} else if (b == 'f'){
+			window.alert("sending stop signal to server-TBC");
+		}
+	}
+
+</SCRIPT>
+
 <style type="text/css">
 #nav {
     display: table;
@@ -39,11 +60,22 @@
 </head>
 <body>
 <div align="center">____________________________________________________________________________________________________________________________________________________________________________________________________________  </div>
-<div align="center"></div>
-<div align="center"></div>
-<div align="center"><img src="Images/Record.jpg" alt="Start Recording" width="394" height="114" vspace="25"></div>
-<div align="center"><img src="Images/StopRecord.jpg" alt="Stop Recording" width="393" height="117" vspace="25"></div>
-<div align="center"><img name="" src="" width="72" height="75" alt=""></div>
-<div align="center"><img src="Images/Send.jpg" alt="Send Data" width="394" height="115" vspace="25"></div>
+  <div align="center">
+    <p>
+      <input type="image" onclick="showRecording('t');" name="imageField" src="Images/Record.jpg">
+    </p>
+    <p>&nbsp;</p>
+    <p>
+      <input type="image" onclick="showRecording('f');" name="imageField2" src="Images/StopRecord.jpg">
+</p>
+    <p>&nbsp;</p>
+    <p>
+      <input type="image" name="imageField4" id="yesNo" src="Images/Project - no.jpg">
+    </p>
+    <p>&nbsp;</p>
+    <p>
+      <input type="image" name="imageField3" src="Images/Send.jpg">
+    </p>
+  </div>
 </body>
 </html>
