@@ -287,7 +287,8 @@
 
 <SCRIPT TYPE="text/javascript">
 	function sendData(){
-		var str = getCheckedRadio(document.forms.f1.elements.radiobutton14).value
+		var str = "";
+		str = str + getCheckedRadio(document.forms.f1.elements.radiobutton14).value
 		window.alert(str);
 	}
 	
