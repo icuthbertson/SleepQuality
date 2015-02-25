@@ -35,7 +35,7 @@ whitePixelCount = [];
 start = clock;
 
 for x = 1:900
-    starttime = [starttime clock];
+    starttime = [starttime; clock];
     for i = 1:fnum+1
         % Trigger both objects.
         trigger(vid2)
@@ -47,7 +47,7 @@ for x = 1:900
         %  u(i).cdata = metaData_DepthAll;
         
     end
-    endtime = [endtime clock];
+    endtime = [endtime; clock];
     s = ApproximateMedian(s);
 
     whitePixelCount = [whitePixelCount; countWhitePixels(s, fnum)];
