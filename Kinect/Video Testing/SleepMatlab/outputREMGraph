@@ -1,0 +1,10 @@
+strpath = strcat('REMGraph',datestr(starttime(1),'mm-dd-yy'),'.txt');
+fileID = fopen(strpath,'w');
+
+formatSpec = '%f,%f,%d,';
+
+for i = 1:numel(REMGraph)
+    fprintf(fileID,formatSpec,starttime(i),endtime(i),REMGraph(i));
+end
+
+fclose(fileID);
