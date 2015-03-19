@@ -24,11 +24,14 @@ t = struct('cdata',zeros(vidHeight,vidWidth,3,'uint8'),...
 u = struct('cdata',zeros(vidHeight,vidWidth,3,'uint8'),...
     'colormap',[]);
 
-starttime = [];
-endtime = [];
+starttime = 0;
+endtime = 0;
+
+counter = 0;
 
 for x = 1:10
-    starttime = [starttime; clock];
+    %starttime = [starttime; clock];
+    starttime = clock;
     for i = 1:fnum+1
         % Trigger both objects.
         trigger(vid2)
@@ -40,8 +43,13 @@ for x = 1:10
         %  u(i).cdata = metaData_DepthAll;
         
     end
-    endtime = [endtime; clock];
-    save('test.mat','s','-append');
+    %endtime = [endtime; clock];
+    endtime = clock;
+    %save(fullfile(pwd,'Data\test.mat','s','starttime','endtime','-append'));
+    counter = counter + 1;
+    str = strcat('Data\output',num2str(counter),'.mat');
+    
+    save(str,'s','starttime','endtime');
     
     %s = ApproximateMedian(s);
 

@@ -45,7 +45,7 @@ for i = 11:200 %From background frame + 1 to end
         foreground = medfilt2(foreground); %Filter image using Median filter to 
                                            %remove salt and pepper noise
                                            
-        %figure(1),imshow(foreground);      %Display resulting foreground
+        figure(1),imshow(foreground);      %Display resulting foreground
              % save output as movie
    input(i).cdata = foreground; %Store foreground in video strucr
 

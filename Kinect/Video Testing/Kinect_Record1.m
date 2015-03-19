@@ -26,12 +26,12 @@ t = struct('cdata',zeros(vidHeight,vidWidth,3,'uint8'),...
 u = struct('cdata',zeros(vidHeight,vidWidth,3,'uint8'),...
     'colormap',[]);
 
+counter = 0;
 
-starttime = [];
-endtime = [];
+whitePixelCount = [];
 
 for x = 1:10
-    starttime = [starttime; clock];
+    starttime = clock;
     for i = 1:fnum+1
         % Trigger both objects.
         trigger(vid2)
@@ -43,11 +43,13 @@ for x = 1:10
         %  u(i).cdata = metaData_DepthAll;
         
     end
-    endtime = [endtime; clock];
+    endtime = clock;
     s = ApproximateMedian(s);
 
-    whitePixelCount = countWhitePixels(s, fnum);
+    whitePixelCount = [whitePixelCount; countWhitePixels(s, fnum)];
 end
+
+save('Data\whitepixels.mat','whitePixelCount','starttime','endtime');
 
 stop(vid2);
 

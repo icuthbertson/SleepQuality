@@ -3,7 +3,7 @@ x2 = [];
 fnum = 200;
 counter = 0;
 
-for x = 1:900
+for x = 1:490
     
     for i = 1:fnum
         

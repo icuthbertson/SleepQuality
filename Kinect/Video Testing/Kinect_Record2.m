@@ -28,7 +28,8 @@ full_record = [];
 starttime = [];
 endtime = [];
 
-for x = 1:10
+start = clock;
+for x = 1:100
     starttime = [starttime; clock];
     for i = 1:fnum+1
         % Trigger both objects.
@@ -48,6 +49,8 @@ for x = 1:10
 
     %whitePixelCount = countWhitePixels(s, fnum);
 end
+finish = clock;
+save('Data\outputFull.mat','full_record','starttime','endtime','start','finish');
 
 stop(vid2);
 
