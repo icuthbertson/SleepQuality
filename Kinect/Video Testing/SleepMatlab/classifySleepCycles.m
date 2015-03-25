@@ -1,4 +1,4 @@
-function [MovementGraph, REMGraph] = classifySleepCycles(whitePixelCount,starttime)
+function [MovementGraph, REMGraph, DisturbedGraph] = classifySleepCycles(whitePixelCount,starttime)
 
 averageLength = 40;
 
@@ -10,7 +10,8 @@ numFrames = whitePixelSize(2);
 classifiedMovement = classifyMovement(whitePixelCount,numFrames,numRows);
 
 MovementGraph = zeros(numRows,1);
-REMGraph  = zeros(numRows,1);
+REMGraph = zeros(numRows,1);
+DisturbedGraph = zeros(numRows,1);
 
 count = 0;
 
@@ -33,12 +34,15 @@ for i = averageLength+1:(numRows) %From background frame + 1 to end
     count = 0;
 end
 
-SVMClassifier = trainSVM();
+[SVMClassifierREM, SVMClassifierDisturbed] = trainSVM();
 
 for g = 1:numRows
     time = starttime(g)-starttime(1);
-    SVMData = [MovementGraph(g), time];
-    REMGraph(g) = FallAnalysis(SVMData, SVMClassifier);
+    SVMDataREM = [MovementGraph(g), time];
+    REMGraph(g) = SleepAnalysis(SVMDataREM, SVMClassifierREM);
+    SVMDataDisturbed = [MovementGraph(g), time];
+    DisturbedGraph(g) = SleepAnalysis(SVMDataDisturbed, SVMClassifierDisturbed);
 end
 
 REMGraph = REMGraph*10;
+DisturbedGraph = DisturbedGraph*10;
