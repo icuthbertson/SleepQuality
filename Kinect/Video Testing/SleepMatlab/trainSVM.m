@@ -23,8 +23,10 @@ TestingDataREM = [0 0; 0 0.1 ; 1 0.2; 4 0; 1 0.1; 3 0.2; 4 0.3 ;
 TestingClassesREM = [0;1;1;0;0;0;0;0;0;1;1;1;1;1;1;1;1;1;0;0;0;0;0;0;0];
 
 %Training groups         0    1         1       0      1        1
-TestingDataDisturbed = [9 0; 10 0.1 ; 10 0.2; 9 0.3; 8 0.2; 8 0.1];
-TestingClassesDisturbed = [0;1;1;0;0;0];
+TestingDataDisturbed = [9 0; 10 0.1 ; 10 0.2; 9 0.3; 8 0.2; 8 0.1; 7 0.1;
+    12 0.4; 6 0.2; 13 0.25; 14 0.12; 9 0.11;11 0.12; 12 0.5; 9 0.05; 9 0.25
+    8 0.25; 8 0.3; 8 0.15; 7 0.2; 5 0.1;];
+TestingClassesDisturbed = [1;1;1;1;0;0;0;1;0;1;1;1;1;1;1;1;1;1;1;0;0;];
 
 SVMClassifierREM = svmtrain(TestingDataREM,TestingClassesREM);
 SVMClassifierDisturbed = svmtrain(TestingDataDisturbed,TestingClassesDisturbed,'ShowPlot',true);
