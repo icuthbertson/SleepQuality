@@ -1,0 +1,115 @@
+/***************************************************
+ * Filename: Client.java
+ *
+ * Synopsis: Client requests the user for a text input
+ *           that input is then sent to a server that
+ *           returns a message that has to be read in
+ *           and then the digit and character counts
+ *           printed out.
+ *
+ * Author:
+ *      Iain Cuthbertson, Reg no: 201015895
+ *
+ * Group:
+ *      Tues, 3-5
+ *
+ * Promise: I confirm that this submission is all my own work.
+ *
+ *          (Signed)__________________________________________
+ *
+ * Version: See VERSION below
+ *
+ * v1.0  	13/11/2012: Initial version. Code based off of
+ *          the code from the Oracle site tutorial found at
+ *          http://www.oracle.com/technetwork/java/socket-140484.html#client
+ *          Code set up to send a String to the server and
+ *          wait to read in a String sent back from the server
+ *          and print out.
+ * v1.1     13/11/2012: Updated to read in a Message from the
+ *          server using an ObjectInputStream. The methods of
+ *          Message were then used to get the character and
+ *          digit counts and print them out.
+ ***************************************************/
+
+//Required imports
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+public class Client {
+    //Initialise the fields for the port number
+    //readers and writers
+    private static Socket clientSocket;
+    private static PrintWriter out;
+    private static InputStream in;
+    private static Scanner userIn;
+    private static int port = 6100;
+    
+    public static void main(String[] args) {
+        startClient();
+    }
+    
+    private static void startClient() {
+        try {
+            //Initialise the socket connecting to the server of local host
+            //on port 6100
+			clientSocket = new Socket("localhost", port);
+            System.out.println("Connecting To Local Host On Port 6100...");
+            
+            //Initialising the readers and writers between the client and server
+            out = new PrintWriter(clientSocket.getOutputStream());
+            in = clientSocket.getInputStream();
+            ObjectInputStream objectIn = new ObjectInputStream(in);
+            
+            //Request user input and read the input in via a scanner
+            System.out.println("Please Enter The Text You Would Like To Send To The Server.");
+            userIn = new Scanner(System.in);
+            String text = userIn.nextLine();
+            //Add a \n to the end of the string because the scanner strips the \n off
+            //when reading it in and the \n is need on the server side so it knows it
+            //has read in the whole string.
+            text += "\n";
+            
+            //Send the String to the server throught the PrintWriter
+            //Then flush the writer to make sure it is empty
+            out.write(text);
+            out.flush();
+            System.out.println("Sent...");
+            
+            //Initialise a Message of type IMessage and read to object in from
+            //the ObjectInputStream from the server
+            IMessage recieve;
+            recieve = (IMessage) objectIn.readObject();
+            
+            //Print out the character and digit counts taken from the message
+            System.out.println("Characters: " + recieve.getCharacterCount());
+            System.out.println("Digits: " + recieve.getDigitCount());
+            
+            //Close the client socket for security purposes
+            clientSocket.close();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Could Not Find IMessage Class");
+            e.printStackTrace();
+		} catch (UnknownHostException e) {
+			System.out.println("Host Could Not Be Found");
+			e.printStackTrace();
+		} catch (IOException e) {
+            System.out.println("Failed To Connect To Server");
+			System.out.println("Or Failed To Send To Server");
+            System.out.println("Or Failed To Recieve Message Back From Server");
+			e.printStackTrace();
+		} finally {
+            //Close the client socket after any exception for security purposes
+            try {
+                clientSocket.close();
+            } catch (IOException e) {
+                System.out.println("Client Socket Failed To Close");
+                e.printStackTrace();
+            }
+        }
+    }
+}

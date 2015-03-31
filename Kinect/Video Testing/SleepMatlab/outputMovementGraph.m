@@ -1,4 +1,10 @@
 strpath = strcat('move',datestr(starttime(1),'mm-dd-yy'),'.txt');
+
+fileID = fopen(strpath,'w');
+formatSpec = '%s,%s,';
+fprintf(fileID,formatSpec,('SUBMIT'),('kinect_move'));
+fclose(fileID);
+
 fileID = fopen(strpath,'w');
 
 formatSpec = '%f,%f,%d,';

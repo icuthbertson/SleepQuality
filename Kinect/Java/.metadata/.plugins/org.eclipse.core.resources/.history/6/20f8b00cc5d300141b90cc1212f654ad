@@ -1,0 +1,70 @@
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.List;
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Server {
+    //Set up the server socket, port number and thread pool
+	private static ServerSocket serverSocket;
+    private static int port;
+    private static ArrayList<String> videolist;
+	
+    public static void main(String[] args) {
+        videolist = new ArrayList<String>();
+        BufferedReader br = null;
+ 
+        try {
+ 
+            String video;
+ 
+            br = new BufferedReader(new FileReader("videolist.txt"));
+ 
+            while ((video = br.readLine()) != null) {
+                videolist.add(video);
+            }
+ 
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null)br.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+    	try {
+            port = Integer.parseInt(args[0]);
+
+			serverSocket = new ServerSocket(port);
+            
+            //Loop forever assuming the server will always be on
+            while(true) {
+                //Accept connection from the client
+                Socket client = serverSocket.accept();
+                
+                //Create a new Connection for the client and
+                //execute it in a thread from the thread pool
+                ServerThread server = new ServerThread(client, videolist);
+                server.start();
+            }
+        } catch (IOException e) {
+            System.out.println("Server Socket Failed To Initialise");
+            System.out.println("Or Failed To Accept Client Connection");
+            //If something fails close the server socket for security purposes
+            try {
+                serverSocket.close();
+            } catch (IOException e1) {
+                System.out.println("Server Socket Failed To Close");
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
+}

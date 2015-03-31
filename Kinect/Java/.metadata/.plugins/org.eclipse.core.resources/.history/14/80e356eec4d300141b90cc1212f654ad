@@ -1,0 +1,32 @@
+/***************************************************
+ * Filename: IMessage.java
+ *
+ * Synopsis: IMessage is an Interface for a message to be 
+ *           sent back from the server to the client.
+ *
+ * Author:
+ *      Iain Cuthbertson, Reg no: 201015895
+ *
+ * Group:
+ *      Tues, 3-5
+ *
+ * Promise: I confirm that this submission is all my own work.
+ *
+ *          (Signed)__________________________________________
+ *
+ * Version: See VERSION below
+ *
+ * v1.0  	13/11/2012: Initial version. Taken from the problem
+ *          copied exactly with Message changed to IMessage.
+ ***************************************************/
+
+public interface IMessage {
+    // set the counts for characters and digits
+    public void setCounts();
+    
+    // return the  number of characters
+    public int getCharacterCount();
+    
+    // return the number of digits
+    public int getDigitCount();
+}
