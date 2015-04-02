@@ -1,0 +1,50 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
+import java.util.Calendar;
+
+
+public class MatlabCalling {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Started");
+		
+		Date date1 = new Date(0);
+	    Calendar c = Calendar.getInstance();
+	    c.setTime(date1);
+	    c.add(Calendar.MINUTE, 1); //adds five minute to the calendar's date
+	    System.out.println(date1.getTime()); //current time
+	    System.out.println(c.getTime().getTime()); //current time + 1 minutes
+	    
+	    long epcohDate = c.getTimeInMillis() / 1000L;
+	    
+		String path = "../Matlab/data/";
+		try {
+		    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(path + "date" + ".txt", true)));
+		    out.print(epcohDate);
+		    out.close();
+		} catch (IOException e) {
+		    //exception handling left as an exercise for the reader
+		}
+		
+		String runString = "matlab -nodisplay -nosplash -nodesktop -r \"run('..\\Matlab\\test(sdlkfhj)')\";exit;";
+		
+		System.out.println(runString);
+		
+		Runtime rt = Runtime.getRuntime();
+		try {
+			Process pr = rt.exec(runString);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		System.out.println("finished!");
+	}
+
+}

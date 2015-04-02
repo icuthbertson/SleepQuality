@@ -59,11 +59,13 @@ public class ServerComms {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("done!!!!!!!!!!!!!!!");
+		System.out.println("done!");
 
 	}
 
 	private static void sendData() throws IOException {
+		
+		String path = "../Matlab/data/";
 		
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");
@@ -71,7 +73,7 @@ public class ServerComms {
 		
 		System.out.println(date);
 		
-		BufferedReader r = new BufferedReader(new FileReader("H:/Sleep Quality Repo/Kinect/Java/Java Comms/data/move" + date + ".txt"));
+		BufferedReader r = new BufferedReader(new FileReader(path + "move" + date + ".txt"));
 
 		String m = null;
 
@@ -84,7 +86,7 @@ public class ServerComms {
 
 		r.close();
 		
-		r = new BufferedReader(new FileReader("H:/Sleep Quality Repo/Kinect/Java/Java Comms/data/REM" + date + ".txt"));
+		r = new BufferedReader(new FileReader(path + "REM" + date + ".txt"));
 
 		while ((m=r.readLine())!= null) {
 			System.out.println(m);
@@ -95,7 +97,7 @@ public class ServerComms {
 
 		r.close();
 		
-		r = new BufferedReader(new FileReader("H:/Sleep Quality Repo/Kinect/Java/Java Comms/data/dist" + date + ".txt"));
+		r = new BufferedReader(new FileReader(path + "dist" + date + ".txt"));
 
 		while ((m=r.readLine())!= null) {
 			System.out.println(m);
@@ -106,7 +108,7 @@ public class ServerComms {
 
 		r.close();
 		
-		r = new BufferedReader(new FileReader("H:/Sleep Quality Repo/Kinect/Java/Java Comms/data/audio" + date + ".txt"));
+		r = new BufferedReader(new FileReader(path + "audio" + date + ".txt"));
 
 		while ((m=r.readLine())!= null) {
 			System.out.println(m);
@@ -117,7 +119,7 @@ public class ServerComms {
 
 		r.close();
 		
-		r = new BufferedReader(new FileReader("H:/Sleep Quality Repo/Kinect/Java/Java Comms/data/accel" + date + ".txt"));
+		r = new BufferedReader(new FileReader(path + "accel" + date + ".txt"));
 
 		while ((m=r.readLine())!= null) {
 			System.out.println(m);

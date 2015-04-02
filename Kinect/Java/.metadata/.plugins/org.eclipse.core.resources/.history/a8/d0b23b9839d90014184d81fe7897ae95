@@ -1,0 +1,27 @@
+import java.io.IOException;
+
+
+public class MatlabCalling {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Started");
+		
+		String runString = "matlab -nodisplay -nosplash -nodesktop -r \"run('..\\Matlab\\test.m')\";exit;";
+		
+		System.out.println(runString);
+		
+		Runtime rt = Runtime.getRuntime();
+		try {
+			Process pr = rt.exec(runString);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		System.out.println("finished!");
+	}
+
+}

@@ -1,0 +1,31 @@
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+
+public class MatlabCalling {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Started");
+		
+		String path = System.getProperty("user.dir");
+		
+		String runString = "matlab -nodisplay -nosplash -nodesktop -r '"  + path + "\\mfile.m');exit;";
+		
+		System.out.println(runString);
+		
+		/*Runtime rt = Runtime.getRuntime();
+		try {
+			Process pr = rt.exec(runString);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
+		
+		System.out.println("finished!");
+	}
+
+}

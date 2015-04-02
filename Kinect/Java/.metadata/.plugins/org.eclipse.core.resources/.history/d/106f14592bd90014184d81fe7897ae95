@@ -1,0 +1,73 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+
+public class TestServerComms {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			sendData();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static void sendData() throws IOException {
+		
+		String pathDir = System.getProperty("user.dir");
+		String path = pathDir = pathDir + "/Matlab/data/";
+		
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");
+		String date = sdf.format(cal.getTime());
+		
+		System.out.println(date);
+		
+		BufferedReader r = new BufferedReader(new FileReader(path + date + ".txt"));
+
+		String m = null;
+
+		while ((m=r.readLine())!= null) {
+			System.out.println(m);
+		}
+
+		r.close();
+		
+		r = new BufferedReader(new FileReader(path + date + ".txt"));
+
+		while ((m=r.readLine())!= null) {
+			System.out.println(m);
+		}
+
+		r.close();
+		
+		r = new BufferedReader(new FileReader(path + date + ".txt"));
+
+		while ((m=r.readLine())!= null) {
+			System.out.println(m);
+		}
+
+		r.close();
+		
+		r = new BufferedReader(new FileReader(path + date + ".txt"));
+
+		while ((m=r.readLine())!= null) {
+			System.out.println(m);
+		}
+
+		r.close();
+		
+		r = new BufferedReader(new FileReader(path + date + ".txt"));
+
+		while ((m=r.readLine())!= null) {
+			System.out.println(m);
+		}
+
+		r.close();
+	}
+}
