@@ -27,21 +27,21 @@ public class ServerComms {
 			w.newLine();
 			w.flush();
 
-			String s = null;
-			//while(s == null) {
+			String s = null;/*
+			while(s == null) {
 				s = loggedIn.readLine();
 				System.out.println(s);
-			//}
+			}
 
 			System.out.println(s);
 
-			if (s.equals("LOGGED IN")) {
+			if (s.equals("LOGGED IN")) {*/
 
 				System.out.println("this is now real text");
 
 				sendData();
 
-			}
+			//}
 
 		} catch (IOException e) {
 			System.err.println(e.toString());
@@ -65,16 +65,15 @@ public class ServerComms {
 
 	private static void sendData() throws IOException {
 		
-		String path = "/Matlab/data/";
+		String path = "../Matlab/data/";
 		
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");
-		//String date = sdf.format(cal.getTime());
-		String date = "03-06-15";
+		String date = sdf.format(cal.getTime());
 		
 		System.out.println(date);
 		
-		BufferedReader r = new BufferedReader(new FileReader("move" + date + ".txt"));
+		BufferedReader r = new BufferedReader(new FileReader(path + "move" + date + ".txt"));
 
 		String m = null;
 
@@ -87,7 +86,7 @@ public class ServerComms {
 
 		r.close();
 		
-		r = new BufferedReader(new FileReader("REM" + date + ".txt"));
+		r = new BufferedReader(new FileReader(path + "REM" + date + ".txt"));
 
 		while ((m=r.readLine())!= null) {
 			System.out.println(m);
@@ -98,7 +97,7 @@ public class ServerComms {
 
 		r.close();
 		
-		r = new BufferedReader(new FileReader("Dist" + date + ".txt"));
+		r = new BufferedReader(new FileReader(path + "dist" + date + ".txt"));
 
 		while ((m=r.readLine())!= null) {
 			System.out.println(m);
@@ -109,7 +108,7 @@ public class ServerComms {
 
 		r.close();
 		
-		/*r = new BufferedReader(new FileReader(path + "audio" + date + ".txt"));
+		r = new BufferedReader(new FileReader(path + "audio" + date + ".txt"));
 
 		while ((m=r.readLine())!= null) {
 			System.out.println(m);
@@ -129,7 +128,7 @@ public class ServerComms {
 			w.flush();
 		}
 
-		r.close();*/
+		r.close();
 	}
 
 	private static void printSocketInfo(Socket s) {

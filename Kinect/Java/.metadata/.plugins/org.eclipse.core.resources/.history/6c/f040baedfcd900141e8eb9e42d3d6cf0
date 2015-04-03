@@ -98,7 +98,7 @@ public class ServerComms {
 
 		r.close();
 		
-		r = new BufferedReader(new FileReader("Dist" + date + ".txt"));
+		r = new BufferedReader(new FileReader(p"Dist" + date + ".txt"));
 
 		while ((m=r.readLine())!= null) {
 			System.out.println(m);

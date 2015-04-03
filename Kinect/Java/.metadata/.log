@@ -354,3 +354,80 @@ Caused by: java.lang.UnsupportedClassVersionError: com/yattasolutions/umllab/val
 
 !ENTRY org.eclipse.wst.common.project.facet.core 4 0 2015-04-02 15:07:53.008
 !MESSAGE Project facet jst.ejb has not been defined. It is used in plugin org.eclipse.jst.j2ee.
+!SESSION 2015-04-03 13:21:50.985 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.7.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.apache.directory.studio.apacheds.configuration.v2 4 0 2015-04-03 13:23:12.689
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.apache.directory.studio.apacheds.configuration.v2 [747]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"] because it is exposed to package 'org.slf4j' from resources org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.5"] and org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"] via two dependency chains.
+
+Chain 1:
+  org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.slf4j.api)(bundle-version>=1.7.5))
+     |
+    provide: osgi.wiring.bundle: org.slf4j.api
+  org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.5"]
+
+Chain 2:
+  org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.directory.server.kerberos.codec)(bundle-version>=2.0.0.M14))
+     |
+    provide: osgi.wiring.bundle; osgi.wiring.bundle="org.apache.directory.server.kerberos.codec"; bundle-version:Version="2.0.0.M14"
+  org.apache.directory.server.kerberos.codec [osgi.identity; osgi.identity="org.apache.directory.server.kerberos.codec"; type="osgi.bundle"; version:Version="2.0.0.M14"]
+    import: (&(osgi.wiring.package=org.apache.directory.api.util)(&(version>=1.0.0)(!(version>=2.0.0))))
+     |
+    export: osgi.wiring.package=org.apache.directory.api.util; uses:=org.slf4j
+  org.apache.directory.api.util [osgi.identity; osgi.identity="org.apache.directory.api.util"; type="osgi.bundle"; version:Version="1.0.0.M19"]
+    import: (&(osgi.wiring.package=org.slf4j)(&(version>=1.7.0)(!(version>=2.0.0))))
+     |
+    export: osgi.wiring.package: org.slf4j
+  org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.yattasolutions.umllab 2 0 2015-04-03 13:24:32.399
+!MESSAGE Unable to configure UML constraint validation
+!STACK 0
+java.lang.ClassNotFoundException: Unable to load synthetic subclass of com.yattasolutions.umllab.validation.f
+	at com.yattasolutions.umllab.validation.a.R(SourceFile:123)
+	at com.yattasolutions.umllab.validation.f.<clinit>(SourceFile:40)
+	at com.yattasolutions.obf.oo.a.earlyStartup(SourceFile:17)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:89)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:67)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$56.run(Workbench.java:2755)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.lang.UnsupportedClassVersionError: com/yattasolutions/umllab/validation/f__Gen_Configurable : Unsupported major.minor version 0.0
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at com.yattasolutions.umllab.validation.a$1.adl(SourceFile:109)
+	at com.yattasolutions.umllab.validation.a$1.findClass(SourceFile:91)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at com.yattasolutions.umllab.validation.a.R(SourceFile:119)
+	... 7 more
+
+!ENTRY org.eclipse.egit.ui 2 0 2015-04-03 13:24:32.898
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\xgb10124'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2015-04-03 13:27:06.692
+!MESSAGE Project facet jst.ejb has not been defined. It is used in plugin org.eclipse.jst.j2ee.
