@@ -22,8 +22,8 @@ public class TestServerComms {
 	}
 
 	public static void sendData() throws IOException {
-		
-		String path = "../Matlab/data/";
+		//path for jar, remove .. if running from eclipse
+		String path = System.getProperty("user.dir") + "\\..\\Matlab\\data\\";
 		
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");

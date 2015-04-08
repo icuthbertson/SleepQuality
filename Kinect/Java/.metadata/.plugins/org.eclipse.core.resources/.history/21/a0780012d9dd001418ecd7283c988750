@@ -1,0 +1,21 @@
+import java.io.File;
+import java.io.IOException;
+
+
+public class MatlabAudio {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		File file3gp = new File("C:\\ffmpeg\\11.3gp");
+        String fpstr = file3gp.getAbsolutePath();
+        String outname = "C:\\ffmpeg\\wout.wav";
+        String exeQuery = "ffmpeg -i "+fpstr+" -acodec pcm_u8 "+outname;
+        try {
+			Runtime.getRuntime().exec(exeQuery);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

@@ -1,0 +1,31 @@
+import java.io.File;
+import java.io.IOException;
+
+
+public class MatlabAudio {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String audioPath = System.getProperty("user.dir") + "..\\Matlab\\data\\audio.3gp";
+		System.out.println(audioPath);
+		
+		File file3gp = new File(audioPath);
+
+        String outname = System.getProperty("user.dir") + "..\\Matlab\\data\\snoring.wav";
+        System.out.println(outname);
+        
+        file3gp.renameTo(new File(outname));
+        
+        //This runs from the jar folder take out the .. if just running from eclipse
+        String runString = "matlab -nodisplay -nosplash -nodesktop -r \"run('..\\Matlab\\breath_detection.m')\";exit;";
+        
+        Runtime rt = Runtime.getRuntime();
+		try {
+			Process pr = rt.exec(runString);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
