@@ -3,7 +3,7 @@ clc
 clear all
 close all
 %Read wave file.
-[wave,Fs,nbts]=wavread('\\studenthome.cis.strath.ac.uk\homes\system\Windows\Downloads\test.wav');
+[wave,Fs,nbts]=wavread('\\studenthome.cis.strath.ac.uk\homes\system\Windows\Desktop\test9.wav');
 %Downsampling Factor. Depends on Sampling Frequency. For sampling
 %frequency > 10kHz Downsampling factor=100, for sampling frequency <10kHz
 %and > 1000Hz , Downsampling factor=10.
@@ -17,11 +17,12 @@ end
 %wave1 contains downsampled data.
 wave1=downsample(wave,dnsample);
 
-max_signal=max(abs(wave1));
-factor=1/max_signal;
-wave2=wave1.*factor;
 
-wave=wave2;
+%max_signal=max(abs(wave1));
+%factor=1/max_signal;
+%wave2=wave1.*factor;
+
+wave=wave1;
 %Frequency is also reduced according to Downsampling.
 Fs=Fs/dnsample;
 %Calculates time of recording.

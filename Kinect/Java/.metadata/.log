@@ -508,3 +508,239 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.wst.common.project.facet.core 4 0 2015-04-08 11:20:27.844
 !MESSAGE Project facet jst.ejb has not been defined. It is used in plugin org.eclipse.jst.j2ee.
+!SESSION 2015-04-17 13:37:34.956 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.7.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.apache.directory.studio.apacheds.configuration.v2 4 0 2015-04-17 13:38:53.512
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.apache.directory.studio.apacheds.configuration.v2 [747]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"] because it is exposed to package 'org.slf4j' from resources org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.5"] and org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"] via two dependency chains.
+
+Chain 1:
+  org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.slf4j.api)(bundle-version>=1.7.5))
+     |
+    provide: osgi.wiring.bundle: org.slf4j.api
+  org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.5"]
+
+Chain 2:
+  org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.directory.server.kerberos.codec)(bundle-version>=2.0.0.M14))
+     |
+    provide: osgi.wiring.bundle; osgi.wiring.bundle="org.apache.directory.server.kerberos.codec"; bundle-version:Version="2.0.0.M14"
+  org.apache.directory.server.kerberos.codec [osgi.identity; osgi.identity="org.apache.directory.server.kerberos.codec"; type="osgi.bundle"; version:Version="2.0.0.M14"]
+    import: (&(osgi.wiring.package=org.apache.directory.api.util)(&(version>=1.0.0)(!(version>=2.0.0))))
+     |
+    export: osgi.wiring.package=org.apache.directory.api.util; uses:=org.slf4j
+  org.apache.directory.api.util [osgi.identity; osgi.identity="org.apache.directory.api.util"; type="osgi.bundle"; version:Version="1.0.0.M19"]
+    import: (&(osgi.wiring.package=org.slf4j)(&(version>=1.7.0)(!(version>=2.0.0))))
+     |
+    export: osgi.wiring.package: org.slf4j
+  org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.yattasolutions.umllab 2 3 2015-04-17 13:41:07.484
+!MESSAGE Failed to acquire floating license: Read timed out
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at L7BWXSOTKON7TR2L6US4DWHX62RYY5ZPWFA7KRNXLAT2QIF4Z6KZ7MRKVZXAZCOU4UGUTUEFYQYVWCKB7J64YVTQLJL5L6IQBWQ7SXRCKLFAPMZUHS4P66QZ2VLM7P7JCXSFCPKFELV3NIEHMRTKKRG7HEPGTTB5C4D5MDMBNOBU7OZNEVXG73QCON2IP4HPVASQSSQ5S4H56HNVTFA65WPS5CZMTLYYF3US7NVT2ZCWU6TAICMXBSRBP6SEU23RFFEJJQ76NSU7XR4ONBZPQJL5TW5HFPVA2OIHD6JKI6SBWQK5GZ4WJI2T7J3TQ3TXKYHNI7RAV5XRUJ43XIACBKWH2GYIXUQU6D6I4NZB3OJQMTE6EEUHF5FKHXABPHYWSSS6NNPVQRTYCKEW7HZUWHZFIDZMKWSB7XYP4QJASFFBQOQL4ABICJHEWGVW4NYERNFMTRBSGAHT2JCH6CGR7L7C2JRTRX7DKVSKAVK6KJXNEOONFIDIVI2UZASWCNZPQUPQ2GYFVI5MYVZCYHO7XPQN45VU25IUBSMH4W476WQNTZR7JWRLJEV56BRXYWSPVMMURJRU5U45CJA6Y4C7H246QOQNBZ7YE7HAR5GAWDQBT6QOHLTSAP3TNIRAY7A3M2274EG7ZOIKHJW3N33TJAQGDPCSTWGJ5ZIPVJVO4HG6NE2CTN7AWHPQ4XGUWV5IWK4O25DVFJFBFXGQQZ4M74H3LX5K325X3LKWZTB7PMKZYU2AT4JXWE25IWZVK5Q26IIRKXWEWCG3FIFYW2KAXAFNSMNJX5FOOG7FCVMLBGDRLTOCVYTWW74XEV4W45AEJBABEMGUCX66DF2BSAXDOTMQZCO23WDFT6PRSO4WHU4ZQ4VGQ67EAJ4KATMVHDJNAFGWXM4YF2FN2FVXKZWDFN45EVOSXU3KTGJVXPLZBFWOHQ5LP2LEATEDSWNFSMOGSY4VBQ6BUVDYVLGDWSVSZ33X6KN72E2VEQ2FQH5PAO4SZ643F4BWBWTYKDO7FFHLXYAFYDCDFZG6PXX4XIAPKUDQE5N3Y6YREIS6X2OSC3AMUNXJY34HJV63TT54S2OC3LVSID3DFJUS756RIO2XIFVZZNWYVRFSRTBKBYIXCO3WCHEYMS3KXOFIQBFKEFTIDR4DEBKQESZ3UHNNVOPPRRKFX5ZV3LWAFYK3K3FE6IVAQMCQFHQFNS5XR6TCOIBYLVHD3H7ZJPKY4JPVEZIKHYKYFZ6ZJ4KU3JFJUWVN2IYUZ3LETAQPMG65GHGNYELPCZYNUPKTNUZBL2R4Q7EF55EHI7LKNNDFTL3R52UR6BLS5Y4BXGT4NXJERW2CGKKNOWEDDWPRSXXMGKHH42CWLHWIUAF4ZDSJQBZDJI7TSDXP57AK47YQN3KDPGMLXEFE64HIZZI5ZY57SSRKAQFLHGBHF467NP6NXSCWA6NIJKUQOCZJHRLQ4UQ4545RCS4ONBD2XBJYVTMM65FQCEAGLILSJL22S7Q4LCPSGYKNOZWATZKRFQRFIASYZXUXQTLH4ALWU6HMGL3UX76ZDS242MOVPVV33FOZ5UIAUPRYLO4ZHKSGCABQ5I4QXXHDASJH3JJFNMPBHABFMPDA5GOERD4BYUR3CKB64F4K44ECDGNRUBKXQOPWKZRAEBCLYPD73SSWQPW6WI3NIZK4WTSHCG34MGQOC4RI7BAGUOLFEYFXPKFZX6Y5CDQFTQMQ5HM76FIFC4VHRU3447PGXL5RAAEB6NXCXRLTG7ZVRT6FOY7KG3U6FI4V7E7PQPPN5EHOAYQXXUYTGMP3ZU5F26DAWDTLF52IZENQA4T5WO3RP23VGNLUDIPN54KHOM67LGJSB26A5MLZD7BQ5N2U5D7N2QYFRQMLZQZ5CHKFAMZXKAQWVWGET7FW4X3VQW7SHFPGGMPEML52AMUSIS2BEJ5M5SMDB6MILAKU4FX7V7WWABXS64JYBZBBAG22TLNKR2NAXUNXA5L3PKQFPCLSUXM22R2B5XDD743GISZH5UJ3SKSHVHJTPISXVRDKHG775IWIW3VPZUYUFFSC3SNN2VDR3OSIZKAU2XLMHJOLX3TQTHTHGLAIVVBLXATCFB2SJUXUVJZPI6UYXHT3TKBLA5TRXXBMOYP6457W6JMHWQ6JG6E5RJJ3UJZ4SPGV7ZEGDI6FE6YR2AJL46YMVQMTVA6MMG426HVPLFDJFFQZHXUNQPZO7YJQVPJSFJBXLXYXYKNGK43ZCLNZW2YNM4KUYKWUKLFB2DCIAC534MACWPA/RYBIAK5KYXTYHHCVIL2EIK6HBF.<unknown>(Unknown Source)
+
+!ENTRY com.yattasolutions.umllab.ui 4 0 2015-04-17 13:41:07.504
+!MESSAGE No valid license is available.
+!STACK 0
+com.yattasolutions.obf.kf.g: No license found for UML Lab.
+	at VWA4GZZLNFBW5FV3Q72I7O3EWTDNM5F24VA2MUNA26CQJIVQQ5FHXTOLZ36X7RTPUFKC5INCMNFJBQWRKDR3V6OH2EFJN74YAURG6KTXRERRABZS42SQJKUHFS7MZSI6FN5FA7HJFWSNWOU3HEIAZIPUDI3AHXLXJWJPB53VSATFLNY54XJBQDIOZERN7ECFBODZD7SDADF7YNMFXVNCS7ITZFPAIK4VQSQAVKETQN44DFM6F2FNZKRJXW757NYM7ICKKIGM56SJM2MRJYK2RSGLYHH6QMKK4DQKD2TPYOUBATD55JWHOLMWU3MNRSDICEIIYINGCDEDNN2KOBUVJO3OR7LS2HZP6EFIX22HGFDMWLFZXBFRVXEPUDDDIIUY35YS2NASTV3FPSJNOBSCEQTXE2OHSUVSS44FPSUK3S4BK4TQ4LO6P5CINFT5O4UPWW5HIBWOTDIPXLS22BNF3AVOVXUGGSPGFEJWMDP5YIPY42ODIHTQUOE3FEIHWJ3FWROFGVC7BTSGADND7J3WUHJJ37SJUYH4BAEMK7UPQGJXCMEMBWABRPBQ4AZVBA7K622SPXI23FETFZZUL2X5OWOUGP47SJ7QJZNVZ56RRVMY2CPYKAHASESOWRRJJYAZ66NIUKRBSWX3R4ALWW75FGAFFMSAUUW6STBXXEKOOYJKPOXTZ3LQCW6BCYGBZHJNLJD6NLO7T66FDLENTLUDUMZOWIJX5TJRCQZR4XJHOAUAOEULEU45HBDWYMXFG6QF3KDI4C4KTRIZCA2UOHBCXAFGPBCH4BZBF54CIHVVNSJYM4Y76JNLF73I7T2E6BCRWBKYDOPBKPBDWLKRVV6SUQHURMXPK3ZLJDGXJG5VZD5E5LH5PPGDW5N4I2TLBJAABQBKATTOQFIOGY6Q6R6BXXMQ4VEU52OJQXRQIWSQP6D4POVRO6PCUDL5DOOGW7IODGFFQQW5XHUVJVCYVGN2NA46Q5N6M5SD2QGNWVEJEDEMBX4IDAWXXUQ66ETH2KF4FI3HQDLTNT4VAEZELSTBTJ2CYQX4NF3SPNBF72QDS55N7WI3ZUKB2SVQPBXMHD2563MUOJ5SGGET2YSA3LNCIRN22H33KOI46XABPTQ4MWFFD5PWUSZXWXDMTU6COLCECOX4W7D7LKND3DYW4HFBMQSW6Y2PTPQIWDTJY4NJVQVZSBKQ4KTIGIBBQXNHCCUFKEM3F3KV66NZBZJPOU2NUHZY2H6TA4IZ6DGW2ETU5GZ3YI7U6JYKF33XOYHDVLIXY3F2UVZIROZFWWRTRHJJGLLDDPFMFVLVJ2JUWIFQFYDHKUCX5HOZGCZ2MOZZENJZGPR4DMFCQWHOAQUX2TOE7PUOLHULJ77Q6T2U4G7MMPAQH4N3I6PDXWQZ3WC6X4NNYCB2FRBYJE32EK5YEDE4PGIPNQ6Z3QTM6MD5UQUPJHHPTBMAYRWUIGQ6ZOQHTZ6K6XJGKZUFWCOWB5UJWIB2IWSCKIUYKU4GZTN4HO5YBFBPDGKY3RHR2ORYRZGOTINUKUMUBYBCZHEXG4ZJXSW3J7YNGQO7HATBHO3TXO3PT75BEHXVAW77DLUQZM3E43JFE3CG37ZPGYWN5Z7YTDX74ABFKGVG4QP7LTDYAMLUDJV7CND5VXWGJSZMRAZNS4TJJQ3L4QX5IRMHXVXW3RH34MSBGZYORZKGGQXLRWP7ZATFUW7Q7RMVBP3SSZQGVBLLER44R5RC6JXXVBLD33LXYEHF4UYCZTHWR6J27EC7AVDD44LRITMDC7P3IEAYOJ6SN2FOEXFQ2VHOEAFNA7NN56WJ6A/EWRCGENWLKHZL3SCWMLHHTBRAE.<unknown>(Unknown Source)
+!SESSION 2015-04-17 13:41:24.508 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.7.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.apache.directory.studio.apacheds.configuration.v2 4 0 2015-04-17 13:41:27.552
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.apache.directory.studio.apacheds.configuration.v2 [747]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"] because it is exposed to package 'org.slf4j' from resources org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.5"] and org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"] via two dependency chains.
+
+Chain 1:
+  org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.slf4j.api)(bundle-version>=1.7.5))
+     |
+    provide: osgi.wiring.bundle: org.slf4j.api
+  org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.5"]
+
+Chain 2:
+  org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.directory.server.kerberos.codec)(bundle-version>=2.0.0.M14))
+     |
+    provide: osgi.wiring.bundle; osgi.wiring.bundle="org.apache.directory.server.kerberos.codec"; bundle-version:Version="2.0.0.M14"
+  org.apache.directory.server.kerberos.codec [osgi.identity; osgi.identity="org.apache.directory.server.kerberos.codec"; type="osgi.bundle"; version:Version="2.0.0.M14"]
+    import: (&(osgi.wiring.package=org.apache.directory.api.util)(&(version>=1.0.0)(!(version>=2.0.0))))
+     |
+    export: osgi.wiring.package=org.apache.directory.api.util; uses:=org.slf4j
+  org.apache.directory.api.util [osgi.identity; osgi.identity="org.apache.directory.api.util"; type="osgi.bundle"; version:Version="1.0.0.M19"]
+    import: (&(osgi.wiring.package=org.slf4j)(&(version>=1.7.0)(!(version>=2.0.0))))
+     |
+    export: osgi.wiring.package: org.slf4j
+  org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+!SESSION 2015-04-17 13:44:40.658 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.7.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.apache.directory.studio.apacheds.configuration.v2 4 0 2015-04-17 13:44:43.770
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.apache.directory.studio.apacheds.configuration.v2 [747]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"] because it is exposed to package 'org.slf4j' from resources org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.5"] and org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"] via two dependency chains.
+
+Chain 1:
+  org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.slf4j.api)(bundle-version>=1.7.5))
+     |
+    provide: osgi.wiring.bundle: org.slf4j.api
+  org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.5"]
+
+Chain 2:
+  org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.directory.server.kerberos.codec)(bundle-version>=2.0.0.M14))
+     |
+    provide: osgi.wiring.bundle; osgi.wiring.bundle="org.apache.directory.server.kerberos.codec"; bundle-version:Version="2.0.0.M14"
+  org.apache.directory.server.kerberos.codec [osgi.identity; osgi.identity="org.apache.directory.server.kerberos.codec"; type="osgi.bundle"; version:Version="2.0.0.M14"]
+    import: (&(osgi.wiring.package=org.apache.directory.api.util)(&(version>=1.0.0)(!(version>=2.0.0))))
+     |
+    export: osgi.wiring.package=org.apache.directory.api.util; uses:=org.slf4j
+  org.apache.directory.api.util [osgi.identity; osgi.identity="org.apache.directory.api.util"; type="osgi.bundle"; version:Version="1.0.0.M19"]
+    import: (&(osgi.wiring.package=org.slf4j)(&(version>=1.7.0)(!(version>=2.0.0))))
+     |
+    export: osgi.wiring.package: org.slf4j
+  org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.yattasolutions.umllab 2 3 2015-04-17 13:45:17.636
+!MESSAGE Failed to acquire floating license: Read timed out
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at KSEYHJLP7FGREHGTNFRMMBVWVPNBN3ISQFWE3JG5IOEGRAWIU2XZFKX5XVKDUZYVO7VZSMYXOP76AKK5TB4CHX5LZTO4JW6EQXDTRESDYKJJRFKM3CBUBGU4ULW3PCATUVSN6WQLOW4ZDHZ5KQVSCBLDZ2I3ICEQXGCXQR5QY7ISLG3VSGWA4KJ5QBMPSWST3NBVCRMZ5OXK6OT2X2KCBARXZ7HKRUEVFOBLQYN7F6D3UDVI4VJIBQ5BAA6CXT6SVGSYCVZO7J4QL3NUJRH5P343DGMKM54X6TZLQQQFRS5ORTSN7UQL3PSCZGJEGIIRG7NEFHSDP5LLEVQCUMNYADIBTZYYOP3HFPMDNPANCMSQM3UMR2R67NNEOUEDMEVS4DYP3K26Q57XEG7ZMRXLG45MRHINNODJV5LGCQD4CXF6WT2A5OGSN4JKGSMNI56L4PPC3PBPBROCY2NYQFBDAC7E3GUOUZ746OZZ2TRZ63BNLO53BTTNKFWRQOXUHFI6SAUZHE4IGDAUX7OBBL4277A2L4KCVNUVB6ZIHLAGS3SFTDNKC5GRYXHWGRTVX564PFYOJQCSTG6YJASOWTFXLIRW3FN3I5LYCHOKG74EQL3JA6LH34ICTZOEIURRR6JCYIZZLYEPCTN2KRCUHDIWJG3Z7B7J2ZSCLHUYIX3KQTIVRSZXBRATYQQUOCG3SVO66WPS65OY2E6KY2N7FTMAWKTSFLYKLQI3DJNA2WHWCNWEV575UWZSBPUKEHSBSDK5Y3GSEGKST4KSWCGMIF6VKSQYBE5BHIZHYIBY3VJRIY4FS7MZ6HMXMAMH3ZXHHMFWRPRYHJVZQH2ZIAHQYDEZPVSQK7IKRAU7M6NASS7DD2TYZOOIBPB6OTIVREK4LPR64WAMEM4H7RAMAPQMHGHGSUHG2F32H6ULFSEVWNXDYCGCIXG7KTGRM4FAFINDFVTZ26IC46K7JKN3XITSGUQR7LW5SRHE2RYKL63GF4IZYADPZIXFZNUYEZ4OAUQTH6QJI5DBFFDS3FTCN3ILVATW73IFYWPU6M6MUV7AVMYQ3SFY4OL6BKE6KRPT64UVFZFF4LBDUNYKNUD2BUX3REHBQ3SGTC2HUNVCJCKTCH5U6LOFG7OBZDXRRIYXUUSBECQTAH5FJOIN2GOVPAISJIARYO4I3WK7XUDA3LPIDAY7K7FUNGESZZ42VWLVVB3NY22URCH4S53V4J7DFDQNCG3OBI5D2O64PYUQALNAQZ3HL5QLAXR4QI6SJW6E3ITI2EOGJK3BLWQWGXLWIJZNJBEJRIVF2P3VYBZQPHDTML5WYDLXBOR7FZTOJY672PUJ34AY5UTZRZMHODJVZG6P3YOE5EUD4QRIDSZ2TFDZ36VTAF5AQUYMREK33TGPQSI224XCP66BJ4VGSLT5HELD3GSFIRHENI2SYDIH7TRFC2XHEQOG7ED65OCTEAF5MMBWWJ6JHDG4HKZ72KQ7PU7PIQYZZM3SXOH62I4ESJMV4ZFQQYKVZFZJWWLITEXNQNGR7XJK5PE3ZJ3RCI5EJFHROZFWWU5OSOFYF7X6ZZ4QPVSLA243DBEGCF3USJYPO5Z3RRLRNZIBMGRPHKIHUNHVZTCDBEEEABBB4ID4EHFEIXVT67TUJI6EQB264Y3KPX2WD4P6JY5PBXPSWW3ZFOWEKN32UX2QWNYQXXT45GLE747H4MRUX2VYRNIIBSTWQ2E6TA6VDJPA7SAKYB6LTBZ5QYIIKQ3KKPV7A4J7EGEI5WQKO4CX4CJSVJXOAHKNCLOYSECERCXZAHENQBM55CXUYQQAW7ZMZA2ZZUTBHPC5E6ZBND3O5T7NTNC253KJUZ2Y4AUWRJPFVN2FXZQDDQ27563Q2YBHVRUBSAQT4LTHIMJT4UBXLSVKRMPCG3R4ZZETECISQD7GCF5XE2Q7X5PSTBTFHANT7PKWSGQBQIN6WXEG7CBU5TDPUYRHOCHJKTPONRMEKWWAZC6DHSX2NH7M2LL2HIX7QYXDHAGYZWNVCC77DIWNYNG44HOOGKUNHDAFGI2SS2ZILKNOB3NIVPKCEO6HOXMOGNFVTD2WWPRLJ7H2ZGQK5BPTNNNEZ2644OTCVB5LDLJ6BLDBJUSCOQHP53ECICC2QZDGXU44G7NEB56DJPCPPRRBZ54O3Q5EK4IGXJJBGPAIE72AUYA63WT75D4MJNORQ26TJUT7VQAP22NYWDT5BXS7PJH63VTWTXE6FXW3CQJBEHNDLVZ2DDVZHZGPQKIUISRWD4TKY6GGXNB/XL7R6YWN2K3PCBGBSRAOJVMHAD.<unknown>(Unknown Source)
+
+!ENTRY com.yattasolutions.umllab.ui 4 0 2015-04-17 13:45:17.646
+!MESSAGE No valid license is available.
+!STACK 0
+com.yattasolutions.obf.kf.g: No license found for UML Lab.
+	at VMMFDT55VDZM4KFDND7Q4KJLTN3ITFLV7CYKVQ2EHGHAUJXNTKMY6U5JEJB2VJONRYVM3U2LNWYU6656VZEH2VYSOH4YUY5BFR3ZYY5XVT7F5CGULJ5SRS5REC262M3IQRA2XWUS4JAAJUSOKPMDXL2D6HTZJEECQW7XWGLLEBM4MDAYMCSURE2KLAVYZBYHSCX6SC74WTYQDV5U53N42Z7SZXDLFGYSM4P54TJYED37ABTSQDAZRNCYHHJP2DIZ46FSLCO4ODFP76SCDEAOOCCPY4KA3UMR6CJKJJIUUMWRMV44UPVLPI7RI2BMOVMBB626U4HJXMW33F6LU5WPDMMXGI3ELPG6MN7VAXO7VDOX4QBQZ2DHSMSUJ3SLQ33TCXBBUGWZPHEQFUARADQRBS4EVBKCQ7INJWOKMJFNJFSFCWKDUJYGEDLUSCYT2ZBNCN6WAFZNV4HDIIDA2GDRQLDBSDGB77ZJCAF3FI2ONC26R7WJIEJOQSCPIOTYG6HJME2VNIUL5VJY6GYTUGEL5SRG3NG3XXIACRPVZT6IZ6UHZKBAAPDAITGLDVMLMDPYSQWBK5A6LW4MVQ7JWFSNUTSG4ETMYVCEM3GV6KWA3EGG7OX2LLSQZUCGRJJ4WL7ZHIBC646GMZGJU4252V23EUU4ZEVWVCGXL33SBIP66Q67CNZ6K7IQ22MS34C6NE7PFG6TGAD4TAFN2JDBIATZ4VCHA22QUW5YGL6QZCRE4I4QCHCP6G22TUFC46CWMAIPY23MTZ4XMG5Z7KOEUYJD5SI7BNR5UMV6TEA3YVPCHBCNI7H726A7HWWLVNZU3XPX6NZMCD3WB36O62DAX3B5NNIWS6MPBXXIF7MNF3JQFC4UKU5KBEBX7QCUL345XNITPMSVT3E3K4LS6QAX3YSQFJARGS7PHCYJO464FPMBKIZFNAFNG7D7GA527IWFM6TVUYSZ6JBLO4UNMF6YDR3JYIVUNKLEEYA6LBLPSY2Z372JUMQ3UVUN2G5XSBBL2CVAMGQGB6AP3WBVQF24PQ65W3WTPQFLT36AOU75YT3ESADK3PNFJVKCK6Z73GNFR4XK3ZM4SRHB4GL4K6ZAJCJX5DFTV2MLQXLU5XM73HJ6UKNXKVUIGAC4QFBKMDS4M4HPIUIMDOJMSFPR73NHZLEU76JOVXUEOKFP3UBNMHHOC5XAMUYD6CB4XLYCWLPJ7UEW45OYS7W4XIVWMMGVYOFCFM3L4V3IWFI5JZEYJHF5GAHBWCBHVOJ35RRPFVIVLUJOA6RTQ5UF3YDJ7NB6C7ISRJY5SDBGIKNA222CC64PXOTVW6GXWDYOOAILLHPDZ2O44KUOCVKMRUIZDW4VA3FGQVGR7SAGGO56E5HXARGPYAIL2WBNDXPLSZ3A32JKMCOXKDJ7BD3U77ZCITYPTNJQVOF5QULWNXDOQZUOFS3O7GURKTJPO6VLCAGVQ4AF3SXCBVTDUTNQ4DO6WG257PDHLDURIVIDMTWE5VLQWXMDALAHLLBO5P5UVNDYQDHGW4TNXNKOLCQ5Z5EOHO7I4LMZS4DZ4NKNM36WLTJK2WYUGYNLL7PMFY7UG2SQMQHVPW3KZDX5BV3ASLGCEADD2RVB7XWRCDAESDWTIE7XNPIZ3ULYQGWE4BZEP5L3VCN6DI6YG2KSROV46O2AL4U4CTR7PWNMBPQOWRWXV4KOEQUBPWT5ZJG5YGTYKSICS2C3KK6FZZNFYGP2GAM4MSERWOI56VLEZ3IGIE7CVJWPXTU5Y2RLH72QPX2C3UR2J2RFLS2QP7ZWHZGUI3A5GN6ONYPGFVOEMC/UNU5PXMYI3GQSBG7IXNMWEPJUA.<unknown>(Unknown Source)
+
+!ENTRY com.yattasolutions.umllab 2 3 2015-04-17 13:45:41.855
+!MESSAGE Failed to acquire floating license: Read timed out
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at DC4KIMCZ6HN5OQQ4O64A3LGIAOEK4VV4HTVIJRSMABQFBZRFLHVUUUKUJLSVCVMYNR25B5ODBWEUTUUPG2OKWWTLRC35THTDQDKXE4J5COW23R5JLHHHEEC3ZXBAUDBNGIZ6DHKLNHDZJQVEO642J6WYUTOVWPHCE4SVOK3AQ3R4SN66EGZUI764BG3QCXS57WYZVMHP7DWKIB6XS3HOPXUTU5XXKYBO7UKNE6ZKLXR5LUEZ6YOB5GSXQZGQZAI7URFA7VG4INN7NPBUR3OUW2347AZKKUFDXYKFDLAUFSESUEWDTOFKWUBDFR6RI7UL7RITEZYGR2RLFIPM3ZP7TIXM5IXW7ED53EFSR2BBIFCBA5PWQT77FAX5PCXV2UQ6LXYANNFFATF436T7RLHFSGELX67SFSFYJIYVT4WRKTPBTXUJFYKMKMPZ2LNP3X5HICCVGVIXREFEX64XI6EBOSIB5ADUWEUQG5D7O7UXOQBJBWB3TIV4A3TKUELF7RS7K6RZVOM5L2C56L6RSPNNU5MCGK7GIQP7OBHMCHS55Z54OZA37VDF3R6SS4KOKG6BBY4SHU72YHND4AH3BF4HIJR6CKY6BCNFWSJ3Y3GTO6GVNSYAK3DV54N2DBJEL7SISITI3CIIJAVE4TGWXXHMNSZ5IGQQ32CZS7YPDTF7F3QRDWUDGHP6GA4WBZP6L47PFWVMBGFXQMWY4BIKQLTUJPYXQEUB7CAWRQFATO6JKT73WVSJMT4Z47EXLZTHQSY5KMT2TQ2ODGOEOTKVXKB24YPFFNPY6KI5BPRBPMCPTPYHMO6P7WSCAOM5ZOIAWMFKB4C2IML7CQT4X2663VMZ67RECB7JIJOGNW5FZPGT7B6UI7GW3B4SH3DD7KPWSRGVKCBHRDEM6S4TQBTYG3L6CPYDDKWEB5247NXM5SLEA7UQJHFCFF2LQJED4BMWK4JKWDUSEIXX4AIQAA4PGW5KDKWJI7OTZA7LMR2ZQI3UTGE5UHZH4AUKU3TCP7TRGDA5WDNTBGS2OPZPXSIOL5CX6WNVM3SZ7V3QV4DRFZB2HDUYQETH6XJAPD3XF4X7KHS6IEUV3IRHF6O24MTVJBKOUM32REVITQSQXQU3DRF43XDH5GICBHOPODCFAHE3F7KB5PLBC3OQACDL5XTFLW2PPBZN576NUUTDEQ6QXDAWLTJANFAKLX6GHYKNBCAI6L4I6UHM6O2LUJQTN2KWIUY7QAZGXG6XDR2YA2FDHBW2XBME4PQMASXL7FSPT65AGNGSPKP2KT7F4TXFSMACMRAWQW7OTPOHN2WCPYCK2RAAPGRM3G7GNMOMUGRJCIKF4HCDZOJUDK2JBSWPWDUJLMZHL2TIR46RXN2XXD44MRVRUHIJSLJFTGULQBSVQL4HNDAGJMOKBCQ22YZBL7UAGYL4TSIUTHPBXYOLV2CTQZ4R4PXZAUL3XODJO7EHVJWVZY36KP7IWCRGNGA5T7NJQOGNGIDQU54QHPWP7DCENRGP355LXVWBQX36VYHCVDZ3W4PN6V6BTKBKVHWXE37DL22BHABTKPOLLJA7QGGINTAI7KJZLSSYTGYRZXLANOAAH76VTEZ4OTDUM4QU6KMO22APLBNRXDYUCQVBFH5A3U3ODLGRVUQQUOQ6VF3UCGHLTRNT3HFJNCIZSS4OCYFZ473KCUKI5PYRBJH2TKWRSX2CSPQ6GAOKYNTOFP62CNF7FH3K3N36NNFO2NP27C3DCDPC2MLJS2VLQGNKA6VGOP3TS5LYA6ZWE7GKLDWHDQDO2VL7RGWYIRIWQNJWWUM5CQ2LCSNM4G4MRO5HZJKWVHIR6DWHQCQVGBCQA362OXMMU5VQWQ5P6LHYPA6VH4DPSQ5JB6ULVTP4XLA2AX65LLL6HLBO3GPKCXLA6A3DUTD6PD6XCU7GQQZKT6ZJCD3LKQQDORQJP557P4NM7DKU2PNXQM5EEBFMZSMZDC54TLKVM3HJSLIDQO5EQSDVSO4IQKFKU6C3JWQGMNOVCQI5UIGLBDZTOKENCUFZNCVHTRJ6KHKNJVOHK7QPFKT2LYBAR4QTA2X45Z7PK2BLGTG34NAUEZKEY76XHESJFFSVPBEFCVZBHHPJLVZ7T2WYMZQJRUEBQ254XRO34O7SCTYHT4T7VOIFN6UKFN7QGM54JWP6EI77ZT46LRUI6CMZTZWAGQ4QR3CUD6HSWPAVOGPEBZC4QF77EOWDYG764OCXPHWSFGZRJU3DUFEVKQPNOQ6BBZULYZCMX7LDHXZ76KDOBYPLENKHF5XK4HD3H2U472HCVQVH/KDYGVHE6YUPXQQUXEWAAQ5EEGF.<unknown>(Unknown Source)
+
+!ENTRY org.eclipse.egit.ui 2 0 2015-04-17 13:45:43.537
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\xgb10124'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.yattasolutions.umllab 2 0 2015-04-17 13:45:44.379
+!MESSAGE Unable to configure UML constraint validation
+!STACK 0
+java.lang.ClassNotFoundException: Unable to load synthetic subclass of com.yattasolutions.umllab.validation.f
+	at com.yattasolutions.umllab.validation.a.R(SourceFile:123)
+	at com.yattasolutions.umllab.validation.f.<clinit>(SourceFile:40)
+	at com.yattasolutions.obf.oo.a.earlyStartup(SourceFile:17)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:89)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:67)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$56.run(Workbench.java:2755)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.lang.UnsupportedClassVersionError: com/yattasolutions/umllab/validation/f__Gen_Configurable : Unsupported major.minor version 0.0
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at com.yattasolutions.umllab.validation.a$1.adl(SourceFile:109)
+	at com.yattasolutions.umllab.validation.a$1.findClass(SourceFile:91)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at com.yattasolutions.umllab.validation.a.R(SourceFile:119)
+	... 7 more
+!SESSION 2015-04-17 13:48:52.787 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.7.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.apache.directory.studio.apacheds.configuration.v2 4 0 2015-04-17 13:48:55.842
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.apache.directory.studio.apacheds.configuration.v2 [747]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"] because it is exposed to package 'org.slf4j' from resources org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.5"] and org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"] via two dependency chains.
+
+Chain 1:
+  org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.slf4j.api)(bundle-version>=1.7.5))
+     |
+    provide: osgi.wiring.bundle: org.slf4j.api
+  org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.5"]
+
+Chain 2:
+  org.apache.directory.studio.apacheds.configuration.v2 [osgi.identity; osgi.identity="org.apache.directory.studio.apacheds.configuration.v2"; type="osgi.bundle"; version:Version="2.0.0.v20130628"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.directory.server.kerberos.codec)(bundle-version>=2.0.0.M14))
+     |
+    provide: osgi.wiring.bundle; osgi.wiring.bundle="org.apache.directory.server.kerberos.codec"; bundle-version:Version="2.0.0.M14"
+  org.apache.directory.server.kerberos.codec [osgi.identity; osgi.identity="org.apache.directory.server.kerberos.codec"; type="osgi.bundle"; version:Version="2.0.0.M14"]
+    import: (&(osgi.wiring.package=org.apache.directory.api.util)(&(version>=1.0.0)(!(version>=2.0.0))))
+     |
+    export: osgi.wiring.package=org.apache.directory.api.util; uses:=org.slf4j
+  org.apache.directory.api.util [osgi.identity; osgi.identity="org.apache.directory.api.util"; type="osgi.bundle"; version:Version="1.0.0.M19"]
+    import: (&(osgi.wiring.package=org.slf4j)(&(version>=1.7.0)(!(version>=2.0.0))))
+     |
+    export: osgi.wiring.package: org.slf4j
+  org.slf4j.api [osgi.identity; osgi.identity="org.slf4j.api"; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
