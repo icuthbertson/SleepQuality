@@ -72,17 +72,23 @@ end
 stop(vid2);
 finish = now;
 
-save('Data\whitepixels.mat','whitePixelCount','starttime','endtime','start','finish');
+[Move, REM, Dist, twitch] = classifySleepCycles(whitePixelCount);
 
-strpath = strcat('results',datestr(clock,'mm-dd-yy'),'.txt');
-fileID = fopen(strpath,'w');
-formatSpec = '%f,%f,%d,';
+outputMovementGraph
+outputREMGraph
+outputDistGraph
 
-for i = 1:numel(whitePixelCount)
-    fprintf(fileID,formatSpec,starttime(i),endtime(i),whitePixelCount(i));
-end
+%save('Data\whitepixels.mat','whitePixelCount','starttime','endtime','start','finish');
 
-fclose(fileID);
+%strpath = strcat('results',datestr(clock,'mm-dd-yy'),'.txt');
+%fileID = fopen(strpath,'w');
+%formatSpec = '%f,%f,%d,';
+
+%for i = 1:numel(whitePixelCount)
+%    fprintf(fileID,formatSpec,starttime(i),endtime(i),whitePixelCount(i));
+%end
+
+%fclose(fileID);
 
 %[x, pewpdi] = VideoAnalysis(s(1).cdata);
 % If you don't stop you can't start video acquisition again. it will give

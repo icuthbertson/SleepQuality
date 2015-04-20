@@ -72,12 +72,14 @@ end
 stop(vid2);
 finish = now;
 
-save('Data\whitepixels.mat','whitePixelCount','starttime','endtime','start','finish');
+%save('Data\whitepixels.mat','whitePixelCount','starttime','endtime','start','finish');
 
-[move,rem,dist] = classifySleepCycles(whitePixelCount,starttime);
+[move,rem,dist,twitch] = classifySleepCycles(whitePixelCount,starttime);
 
 outputMovementGraph(starttime,endtime,move);
 outputREMGraph(starttime,endtime,rem);
 outputDistGraph(starttime,endtime,dist);
+outputTwitch(starttime,twitch);
+outputRestless(starttime,dist);
 
 system('java -jar ..\Jars\sendKinectDataToServer.jar')

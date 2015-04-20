@@ -28,7 +28,7 @@ TestingDataDisturbed = [9 0; 10 0.1 ; 10 0.2; 9 0.3; 8 0.2; 8 0.1; 7 0.1;
     8 0.25; 8 0.3; 8 0.15; 7 0.2; 5 0.1;];
 TestingClassesDisturbed = [1;1;1;1;0;0;0;1;0;1;1;1;1;1;1;1;1;1;1;0;0;];
 
-SVMClassifierREM = svmtrain(TestingDataREM,TestingClassesREM,'ShowPlot',true);
+SVMClassifierREM = svmtrain(TestingDataREM,TestingClassesREM);
 SVMClassifierDisturbed = svmtrain(TestingDataDisturbed,TestingClassesDisturbed);
 end
 

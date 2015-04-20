@@ -1,4 +1,4 @@
-function [MovementGraph, REMGraph, DisturbedGraph] = classifySleepCycles(whitePixelCount,starttime)
+function [MovementGraph, REMGraph, DisturbedGraph, twitch] = classifySleepCycles(whitePixelCount,starttime)
 
 averageLength = 40;
 
@@ -7,7 +7,7 @@ whitePixelSize = size(whitePixelCount);
 numRows = whitePixelSize(1);
 numFrames = whitePixelSize(2);
 
-classifiedMovement = classifyMovement(whitePixelCount,numFrames,numRows);
+[classifiedMovement, twitch] = classifyMovement(whitePixelCount,numFrames,numRows);
 
 MovementGraph = zeros(numRows,1);
 REMGraph = zeros(numRows,1);

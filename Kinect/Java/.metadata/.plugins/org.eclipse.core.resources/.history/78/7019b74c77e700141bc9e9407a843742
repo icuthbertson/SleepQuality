@@ -75,7 +75,7 @@ public class ServerComms {
 		
 		System.out.println(date);
 		
-		BufferedReader r = new BufferedReader(new FileReader(path + "move" + date + ".txt"));
+		BufferedReader r = new BufferedReader(new FileReader("move" + date + ".txt"));
 
 		String m = null;
 
@@ -93,7 +93,7 @@ public class ServerComms {
 			System.out.println(s);
 		//}
 		
-		r = new BufferedReader(new FileReader(path + "REM" + date + ".txt"));
+		r = new BufferedReader(new FileReader("REM" + date + ".txt"));
 
 		while ((m=r.readLine())!= null) {
 			System.out.println(m);
@@ -110,7 +110,7 @@ public class ServerComms {
 			System.out.println(s);
 		//}
 		
-		r = new BufferedReader(new FileReader(path + "Dist" + date + ".txt"));
+		r = new BufferedReader(new FileReader("Dist" + date + ".txt"));
 
 		while ((m=r.readLine())!= null) {
 			System.out.println(m);
@@ -127,7 +127,7 @@ public class ServerComms {
 			System.out.println(s);
 		//}
 		
-		r = new BufferedReader(new FileReader(path + "Restless" + date + ".txt"));
+		/*r = new BufferedReader(new FileReader(path + "audio" + date + ".txt"));
 
 		while ((m=r.readLine())!= null) {
 			System.out.println(m);
@@ -138,13 +138,7 @@ public class ServerComms {
 
 		r.close();
 		
-		s = null;
-		//while(s == null) {
-			s = loggedIn.readLine();
-			System.out.println(s);
-		//}
-		
-		r = new BufferedReader(new FileReader(path + "Twitch" + date + ".txt"));
+		r = new BufferedReader(new FileReader(path + "accel" + date + ".txt"));
 
 		while ((m=r.readLine())!= null) {
 			System.out.println(m);
@@ -153,13 +147,7 @@ public class ServerComms {
 			w.flush();
 		}
 
-		r.close();
-		
-		s = null;
-		//while(s == null) {
-			s = loggedIn.readLine();
-			System.out.println(s);
-		//}
+		r.close();*/
 	}
 
 	private static void printSocketInfo(Socket s) {

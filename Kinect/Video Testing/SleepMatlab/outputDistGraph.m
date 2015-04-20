@@ -8,8 +8,8 @@ fclose(fileID);
 fileID = fopen(strpath,'w');
 formatSpec = '%f,%f,%d,';
 
-for i = 1:numel(REM)
-    fprintf(fileID,formatSpec,((starttime(i)-datenum(1970,1,1))*86400),((endtime(i)-datenum(1970,1,1))*86400),dist(i));
+for i = 1:numel(Dist)
+    fprintf(fileID,formatSpec,((starttime(i)-datenum(1970,1,1))*86400),((endtime(i)-datenum(1970,1,1))*86400),Dist(i));
 end
 
 fclose(fileID);
