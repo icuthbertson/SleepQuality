@@ -1,4 +1,4 @@
-%This version of the file would record 200 frames and then analyse them.
+%This version of the file would record 400 frames and then analyse them.
 %Issues with this are that something could be missed when not recording
 %And other methods will need to be changed to take into account what
 %happened before.

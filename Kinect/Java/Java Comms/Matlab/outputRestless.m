@@ -13,7 +13,9 @@ previous = 0;
 
 for i = 1:numel(dist)
     if previous ~= dist(i)
-        restless = restless + 1;
+        if dist(i) == 10
+            restless = restless + 1;
+        end 
         previous = dist(i);
     end
 end

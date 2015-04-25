@@ -4,6 +4,7 @@
 % 
 % Adapted to make use of VideoReader and filter foreground noise 
 % for Fall-Event Detection System by Fraser Kernohan 
+% Re-purposed for sleep quality detection system by Fraser Kernohan and Iain Cuthbertson
 % 
 function [input] = ApproximateMedian(input)
 
@@ -31,7 +32,7 @@ for i = 11:200 %From background frame + 1 to end
              if ((fr_diff(k,j) > thresh))  % if fr_diff > thresh pixel in foreground
                  foreground(k,j) = fr(k,j); %Set foreground pixel to frame value
              else
-                 foreground(k,j) = 0; %If difference isnt greater than threshold set pixel black
+                 foreground(k,j) = 0; %If difference isn't greater than threshold set pixel black
              end
 
                  if (fr(k,j) > bg(k,j))   %       
@@ -47,6 +48,6 @@ for i = 11:200 %From background frame + 1 to end
                                            
         figure(1),imshow(foreground);      %Display resulting foreground
              % save output as movie
-   input(i).cdata = foreground; %Store foreground in video strucr
+   input(i).cdata = foreground; %Store foreground in video struct
 
 end
